@@ -1,2 +1,7 @@
-# usp_FileSystem
-Project to implement a file system for Unix System Programming Lab
+# Implementing a File System
+## Lab project for UE15CS354 Unix Systems Programming Lab
+
+### Contributers:
+* Ravi Shreyas Anupindi
+* Rishabh Dutt
+* Rajat Nigam

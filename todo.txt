@@ -1,0 +1,4 @@
+Generate 100Mb file disk emulator. 	Done
+Implement functionalities for files and directories.
+Implement an in-memory file representation.
+Upload the file.

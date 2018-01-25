@@ -14,6 +14,8 @@
 
 #define BLOCKS_PER_FILE 4
 
+#define MAX_LENGTH 255
+
 #define POINTERS_PER_BLOCK (BLOCK_SIZE / sizeof(int))
 
 #endif

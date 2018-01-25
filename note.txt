@@ -1,0 +1,7 @@
+Every disk has 1 superblock that will contain the information of the blocks free and used.(bitmap)
+16 inodes structure 
+remaining data blocks
+a directory is mapping from name to inode.
+Whenever you create a directory the size will be fixed to one block 4KB
+File will have size set according to the contents.
+So basically a directory is mapping and directory is file too.

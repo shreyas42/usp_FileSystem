@@ -7,28 +7,30 @@
 #ifndef DIRECTORY_H_
 #define DIRECTORY_H_
 
+#include"macros.h"
 
 #define MODE_STRING_SIZE 5
 
-typedef struct{
+/*structure to maintain the modebits for a file
+ * considering a single user file system no multi user
+ * so permissions would be set as two bits for type of file
+ * three bits for read,write,execute permissions
+ */
+
+struct mode_string{
     char bit_string[MODE_STRING_SIZE]; // 2 bits for file type, 3 bits for user permissions
-}f_mode;
+};
 
+struct inode{
+    unsigned short int disk; //disk number
+    unsigned long int inode_num; //inode identifier
+    int size; //size of the file in blocks
+    int block_p[BLOCKS_PER_FILE]; //block numbers where data is stored
+    int indirect_p; //block number where the first level indirect pointers are stored : there are POINTERS_PER_BLOCK stored in each block
+};
 
-
-typedef struct{
-    uint disk; //disk number
-    ulong int inode_num; //inode identifier
-    //file mode
-    //link number
-    //userid
-    //group id
-    //device id if device file
-    //size of the file in bytes
-    //last modified
-    //last accessed
-    //number of blocks allocated to the file
-    //pointer to first block
-}inode;
+int createInode();
+int getDisk(struct inode *p);
+int getInodeNum(struct inode *p,int disk);
 
 #endif

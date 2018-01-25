@@ -23,9 +23,9 @@ struct mode_string{
 
 /* structure to maintain the time stamps for the files*/
 struct timestamp{
-	unsigned long int ctime; // When the particular inode was changed.
-	unsigned long int mtime; // when the file contents were modified
-	unsigned long int atime; // when the file was accessed.
+	unsigned long int ctime; // When the particular inode was changed. Stored in Epoch
+	unsigned long int mtime; // when the file contents were modified Stored in Epoch
+	unsigned long int atime; // when the file was accessed. Stored in Epoch
 };
 
 /*structure to maintain the inode structure for files*/
@@ -52,5 +52,6 @@ struct inode createInode();
 //int getDisk(struct inode *p);
 unsigned long int getInodeNum(struct inode *p);
 // update time stamp when the file is accessed, modified or deleted.
-
+// create a directory mapping.
+// generate unique inode number
 #endif

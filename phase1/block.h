@@ -6,30 +6,37 @@
 #ifndef BLOCK_H_
 #define BLOCK_H_
 
-#include"fs.h"
+#include "macros.h"
+#include "fs.h"
 
 struct disk_block;
-struct data_block;
 struct inode_block;
+struct data_block;
+struct indirect_block;
 
 struct data_block{
-  char buffer[BLOCK_SIZE - sizeof(int) - sizeof(unsigned int) - sizeof(struct disk_block)];  
+  char buffer[UNION_SIZE];  
 };
 
 struct inode_block{
-    struct inode buffer[BLOCK_SIZE / sizeof(struct inode)];
+    struct inode buffer[UNION_SIZE / sizeof(struct inode)];
 };
 
+struct indirect_block{
+    struct disk_block *buffer[UNION_SIZE / sizeof(struct disk_block *)];
+};
+
+
 /* File that abstracts our storage device into block number*/
-struct diskblock{
+struct disk_block{
 	int diskblocknumber;
     unsigned int block_flag;
-	struct diskblock * nextdiskblock;
+	struct disk_block * nextdiskblock;
     union buffer_type{
-        struct data_block dblock;
         struct inode_block iblock;
-        struct super_block sblock;
-    };
+        struct data_block dblock;
+        struct indirect_block pblock;
+    } buf_type;
 };
 /* Needs to be worked upon */
 #endif

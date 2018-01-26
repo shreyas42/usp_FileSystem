@@ -2,6 +2,7 @@
 #include"fs.h"
 
 int main(){
-    printf("%ld",POINTERS_PER_BLOCK);
+    printf("%d\n", sizeof(struct inode));	
+    printf("%ld\n",POINTERS_PER_BLOCK);
     return 0;
 }

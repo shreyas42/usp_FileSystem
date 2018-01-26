@@ -32,10 +32,10 @@ struct timestamp{
 
 struct inode{
     //struct inode * parent; // To store the ..	
-    // unsigned short int disk; //disk number not required for one disk scenario
+    unsigned short int disk; //disk number not required for one disk scenario
     unsigned long int inode_num; //inode identifier
     unsigned int size; //size of the file in blocks
-    struct mode_string; // This to store type of the file and permission bit 
+    struct mode_string mstring; // This to store type of the file and permission bit 
     //int block_p[BLOCKS_PER_FILE]; //block numbers where data is stored
     struct timestamp tstamp; // The time stamp contains the mtime, ctime and atime
     int indirect_p; //block number where the first level indirect pointers are stored : there are POINTERS_PER_BLOCK stored in each block

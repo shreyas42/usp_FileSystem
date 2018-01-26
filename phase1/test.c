@@ -2,6 +2,6 @@
 #include"fs.h"
 
 int main(){
-    printf("%ld",POINTERS_PER_BLOCK);
+    printf("%ld\n",sizeof(struct inode));
     return 0;
 }

@@ -6,4 +6,4 @@
 * Rishabh Dutt
 * Rajat Nigam
 
-Currently in progress.
+Deprecated. Project moved to https://github.com/rishabh3/RFileSystem.git
